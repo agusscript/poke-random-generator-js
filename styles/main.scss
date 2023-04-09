@@ -25,10 +25,117 @@ main {
         text-align: center;
         border-top-right-radius: 0.4rem;
         border-top-left-radius: 0.4rem;
+        height: 200px;
+        position: relative;
+
+        .loader {
+          display: block;
+          font-size: 0.8rem;
+          width: 0.9rem;
+          height: 0.9rem;
+          border-radius: 50%;
+          text-indent: -9999em;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          animation: mulShdSpin 1.1s infinite ease;
+        }
+
+        @keyframes mulShdSpin {
+          0%,
+          100% {
+            box-shadow: 0em -2.6em 0em 0em #ffffff,
+              1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+              2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+              1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+              0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+              -2.6em 0em 0 0em rgba(255, 255, 255, 0.5),
+              -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+          }
+          12.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7),
+              1.8em -1.8em 0 0em #ffffff,
+              2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+              1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+              0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+              -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+          }
+          25% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5),
+              1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7),
+              2.5em 0em 0 0em #ffffff,
+              1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+              0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+              -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          }
+          37.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+              1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5),
+              2.5em 0em 0 0em rgba(255, 255, 255, 0.7),
+              1.75em 1.75em 0 0em #ffffff,
+              0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+              -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          }
+          50% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+              1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+              2.5em 0em 0 0em rgba(255, 255, 255, 0.5),
+              1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7),
+              0em 2.5em 0 0em #ffffff,
+              -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+              -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          }
+          62.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+              1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+              2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+              1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5),
+              0em 2.5em 0 0em rgba(255, 255, 255, 0.7),
+              -1.8em 1.8em 0 0em #ffffff,
+              -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          }
+          75% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+              1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+              2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+              1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+              0em 2.5em 0 0em rgba(255, 255, 255, 0.5),
+              -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7),
+              -2.6em 0em 0 0em #ffffff,
+              -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+          }
+          87.5% {
+            box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+              1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+              2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+              1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+              0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+              -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
+              -2.6em 0em 0 0em rgba(255, 255, 255, 0.7),
+              -1.8em -1.8em 0 0em #ffffff;
+          }
+        }
 
         img {
           width: 200px;
           height: 200px;
+          animation: fade 1s;
+        }
+
+        .occult {
+          display: none;
         }
       }
 
@@ -40,8 +147,36 @@ main {
         color: whitesmoke;
 
         h1 {
-          margin: 0;
+          margin: 0.1rem;
+          margin-bottom: 0.6rem;
           text-transform: capitalize;
+          font-size: 2.5rem;
+        }
+
+        .header-info {
+          margin-bottom: 1.2rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .number {
+            background-color: #d3e1e5;
+            color: #0c181c;
+            padding: 0.5rem 0.8rem;
+            font-weight: bold;
+            border-radius: 0.4rem;
+          }
+
+          .type {
+            padding: 0.5rem 0.8rem;
+            background-color: #0c181c;
+            border-radius: 0.4rem;
+            text-transform: capitalize;
+            letter-spacing: 0.1rem;
+            color: #d3e1e5;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
         }
 
         p {
@@ -49,7 +184,16 @@ main {
           text-transform: capitalize;
         }
 
+        span {
+          font-weight: 700;
+          background-color: rgb(220, 220, 220);
+          padding: 0.1rem 0.3rem;
+          color: #0c181c;
+          letter-spacing: 0.1rem;
+        }
+
         .stat-container {
+          margin-top: 0.5rem;
           text-align: start;
 
           .stat-bar {
@@ -82,5 +226,16 @@ main {
         }
       }
     }
+  }
+}
+
+@keyframes fade {
+  0% {
+    width: 300px;
+    opacity: 0;
+  }
+  100% {
+    width: 200px;
+    opacity: 1;
   }
 }
