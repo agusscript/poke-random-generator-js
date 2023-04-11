@@ -1,3 +1,5 @@
+const d = document;
+
 const typeColors = {
   grass: "linear-gradient(to right, #6fce40, #103000)",
   steel: "linear-gradient(to right, #66c0e0, #002e3f)",
@@ -17,18 +19,16 @@ const typeColors = {
   fairy: "linear-gradient(to right, #f170f1, #470047)",
 };
 
-function getApiData() {
+function getPokemonInfo() {
+  occultPokemonImage();
   showLoader();
-  
+
   fetch("https://pokeapi.co/api/v2/pokemon/" + getRandomNumber(1, 151))
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
       const pokemon = {
         name: data.name,
         img: data.sprites.other["official-artwork"].front_default,
-        id: data.id,
         type: data.types[0].type.name,
         hp: data.stats[0].base_stat,
         defense: data.stats[1].base_stat,
@@ -37,39 +37,46 @@ function getApiData() {
       };
 
       setTimeout(() => {
-        showPokemonData(pokemon);
+        showPokemonCard(pokemon);
       }, 500);
     })
     .catch((error) => console.error("Failed", error));
 }
 
-function showLoader() {
-  document.querySelector(".loader").classList.remove("occult");
-}
-
-function occultLoader() {
-  document.querySelector(".loader").classList.add("occult");
-}
-
-function showPokemonData(pokemon) {
+function showPokemonCard(pokemon) {
   occultLoader();
-  document.querySelector("h1").textContent = pokemon.name;
-  const pokemonImage = document.createElement("img");
-  pokemonImage.src = pokemon.img;
-  document.querySelector(".img-container").append(pokemonImage);
-  document.querySelector(".img-container").style.background = typeColors[pokemon.type];
-  document.querySelector(".number").textContent = `ID #${pokemon.id}`;
-  document.querySelector(".type").textContent = `${pokemon.type}`;
-  document.querySelector(".hp").textContent = `${pokemon.hp}`;
-  document.querySelector(".attack").textContent = `${pokemon.attack}`;
-  document.querySelector(".defense").textContent = `${pokemon.defense}`;
-  document.querySelector(".speed").textContent = `${pokemon.speed}`;
-  document.querySelector(".type").style.background = typeColors[pokemon.type];
-
+  showPokemonImage(pokemon);
+  showPokemonInfo(pokemon);
   animateStatBar("hp", pokemon.hp);
   animateStatBar("attack", pokemon.attack);
   animateStatBar("defense", pokemon.defense);
   animateStatBar("speed", pokemon.speed);
+}
+
+function occultPokemonImage() {
+  const $pokemonImage = d.querySelector(".pokemon-image");
+  $pokemonImage.style.visibility = "hidden";
+  $pokemonImage.src = "";
+}
+
+function showPokemonImage(pokemon) {
+  const $pokemonImage = d.querySelector(".pokemon-image");
+  const $pokemonImageContainer = d.querySelector(".img-container");
+  $pokemonImage.style.visibility = "visible";
+  $pokemonImage.src = pokemon.img;
+  $pokemonImageContainer.style.background = typeColors[pokemon.type];
+  $pokemonImage.animate([{ scale: 0.85 }, { scale: 1 }], 1600);
+}
+
+function showPokemonInfo(pokemon) {
+  const $pokmonType = d.querySelector(".type");
+  $pokmonType.textContent = `${pokemon.type}`;
+  $pokmonType.style.background = typeColors[pokemon.type];
+  d.querySelector(".name").textContent = pokemon.name;
+  d.querySelector(".hp").textContent = `${pokemon.hp}`;
+  d.querySelector(".attack").textContent = `${pokemon.attack}`;
+  d.querySelector(".defense").textContent = `${pokemon.defense}`;
+  d.querySelector(".speed").textContent = `${pokemon.speed}`;
 }
 
 function getRandomNumber(min, max) {
@@ -77,22 +84,24 @@ function getRandomNumber(min, max) {
 }
 
 function animateStatBar(stat, width) {
-  const selectedStat = document.querySelector(`.${stat}-bar`);
+  const selectedStat = d.querySelector(`.${stat}-bar`);
 
   if (width > 100) {
     width = 100;
   }
 
-  selectedStat.animate([{ width: 0 }, { width: `${width}%` }], 2000);
+  selectedStat.animate([{ width: 0 }, { width: `${width}%` }], 1600);
   selectedStat.style.width = `${width}%`;
 }
-/*
-animateStatBar("hp", 46);
-animateStatBar("attack", 73);
-animateStatBar("defense", 56);
-animateStatBar("speed", 85);
-*/
 
-//document.querySelector(".img-container").style.background = typeColors.water;
+function showLoader() {
+  d.querySelector(".loader").classList.remove("occult");
+}
 
-getApiData();
+function occultLoader() {
+  d.querySelector(".loader").classList.add("occult");
+}
+
+d.querySelector(".random-btn").onclick = getPokemonInfo;
+
+getPokemonInfo();
