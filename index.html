@@ -6,28 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/pokeball-png.png">
-  <title>Pokedex</title>
+  <title>Poke Random Generator</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
   <main>
-
     <section class="card-container">
-
       <div class="card">
-
         <div class="img-container">
-          <span class="loader occult"></span>
+          <img class="loader occult" src="images/loader.gif" alt="loader icon">
+          <img class="pokemon-image" src="" alt="pokemon image">
         </div>
 
         <div class="content">
-          <h1 class="name">pokemon</h1>
+          <h1 class="name">Pokemon</h1>
 
-         <div class="header-info">
-          <p class="number">#000</p>
-          <p class="type">normal</p>
-         </div>
+          <div class="header-info">
+            <button class="random-btn">
+              <img src="images/random-icon.svg" alt="random icon">
+            </button>
+            <p class="type">Normal</p>
+          </div>
 
           <article class="stat-container">
             <p class="hp-container">hp <span class="hp">50</span></p>
@@ -56,13 +56,15 @@
               <div class="speed-bar"></div>
             </div>
           </article>
-
         </div>
-
       </div>
-
     </section>
   </main>
+  <footer>
+    <p>
+      Coded by <a href="https://github.com/agusscript" target="_blank">Agustin Sanchez</a>
+    </p>
+  </footer>
   <script src="src/main.js"></script>
 </body>
 
