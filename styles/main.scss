@@ -12,6 +12,11 @@ main {
   align-items: center;
   justify-content: center;
 
+  @media (max-height: 600px) {
+    height: auto;
+    padding: 1rem 0;
+  }
+
   .card-container {
     background-color: whitesmoke;
     width: 380px;
@@ -39,13 +44,19 @@ main {
           margin: auto;
         }
 
-        img {
+        .pokemon-image {
           width: 200px;
           height: 210px;
         }
 
         .occult {
           display: none;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .img-container {
+          height: 210px;
         }
       }
 
