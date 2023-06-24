@@ -1,6 +1,6 @@
 # Poke Random Generator Js
 
-![](assets/screenshots/mobile-card.png)
+![](assets/screenshots/abra-card-desktop.png)
 
 - Generate a random pokemon card (first generation)
 
@@ -29,7 +29,7 @@
 
 - Desktop view
 
-![](assets/screenshots/abra-card-desktop.png)
+![](assets/screenshots/psyduck-card-desktop.png)
 
 - Mobile view
 
