@@ -1,6 +1,6 @@
 import { typeColors } from "./typeColors";
 
-export const randomButton: any = document.querySelector(".random-btn");
+export const randomButton = <HTMLButtonElement>document.querySelector(".random-btn");
 
 export function showPokemonCard(pokemon: {
   name: string;
@@ -29,20 +29,20 @@ export function showPokemonInfo(pokemon: {
   defense: number;
   speed: number;
 }): void {
-  const $pokmonType: any = document.querySelector(".type");
-  const $pokemonName: any = document.querySelector(".name");
-  const $pokemonHp: any = document.querySelector(".hp");
-  const $pokemonAttack: any = document.querySelector(".attack");
-  const $pokemonDefense: any = document.querySelector(".defense");
-  const $pokemonSpeed: any = document.querySelector(".speed");
+  const $pokmonType = <HTMLParagraphElement>document.querySelector(".type");
+  const $pokemonName = <HTMLParagraphElement>document.querySelector(".name");
+  const $pokemonHp = <HTMLSpanElement>document.querySelector(".hp");
+  const $pokemonAttack = <HTMLSpanElement>document.querySelector(".attack");
+  const $pokemonDefense = <HTMLSpanElement>document.querySelector(".defense");
+  const $pokemonSpeed = <HTMLSpanElement>document.querySelector(".speed");
 
   $pokmonType.textContent = pokemon.type;
   $pokmonType.style.background = typeColors[pokemon.type];
   $pokemonName.textContent = pokemon.name;
-  $pokemonHp.textContent = pokemon.hp;
-  $pokemonAttack.textContent = pokemon.attack;
-  $pokemonDefense.textContent = pokemon.defense;
-  $pokemonSpeed.textContent = pokemon.speed;
+  $pokemonHp.textContent = pokemon.hp.toString();
+  $pokemonAttack.textContent = pokemon.attack.toString();
+  $pokemonDefense.textContent = pokemon.defense.toString();
+  $pokemonSpeed.textContent = pokemon.speed.toString();
 }
 
 export function showPokemonImage(pokemon: {
@@ -54,8 +54,8 @@ export function showPokemonImage(pokemon: {
   defense: number;
   speed: number;
 }): void {
-  const $pokemonImage: any = document.querySelector(".pokemon-image");
-  const $pokemonImageContainer: any = document.querySelector(".img-container");
+  const $pokemonImage = <HTMLImageElement>document.querySelector(".pokemon-image");
+  const $pokemonImageContainer = <HTMLDivElement>document.querySelector(".img-container");
   $pokemonImage.style.visibility = "visible";
   $pokemonImage.src = pokemon.image;
   $pokemonImageContainer.style.background = typeColors[pokemon.type];
@@ -63,7 +63,7 @@ export function showPokemonImage(pokemon: {
 }
 
 export function animateStatBar(stat: string, width: number): void {
-  const selectedStat: any = document.querySelector(`.${stat}-bar`);
+  const selectedStat = <HTMLDivElement>document.querySelector(`.${stat}-bar`);
 
   if (width > 100) {
     width = 100;
@@ -74,17 +74,17 @@ export function animateStatBar(stat: string, width: number): void {
 }
 
 export function showLoader() {
-  const loader: any = document.querySelector(".loader");
+  const loader = <HTMLImageElement>document.querySelector(".loader");
   loader.classList.remove("hide");
 }
 
 export function hideLoader() {
-  const loader: any = document.querySelector(".loader");
+  const loader = <HTMLImageElement>document.querySelector(".loader");
   loader.classList.add("hide");
 }
 
 export function hidePokemonImage(): void {
-  const $pokemonImage: any = document.querySelector(".pokemon-image");
+  const $pokemonImage = <HTMLImageElement>document.querySelector(".pokemon-image");
   $pokemonImage.style.visibility = "hidden";
   $pokemonImage.src = "";
 }
