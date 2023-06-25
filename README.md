@@ -40,6 +40,13 @@
 - [Live site](https://poke-random-generator-js.vercel.app/)
 - Api from: [Poke Api](https://pokeapi.co/)
 
+## Run the project locally
+
+1. Clone this repository
+2. In this folder repo, open your console and run: `npm install`
+3. Then run: `npm run dev` to start a local server
+4. Open http://localhost:5173/ in your browser
+
 ## Author
 
 - Linkedin - [Agustin Emanuel Sanchez](https://www.linkedin.com/in/agustin-emanuel-sanchez-4b2807240/)
