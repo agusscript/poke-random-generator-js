@@ -1,28 +1,23 @@
 import { getPokemonInfo } from "./api/pokeApi";
 import { mapPokemon } from "./mappers/mapper";
-import {
-  hidePokemonImage,
-  showLoader,
-  showPokemonCard,
-  randomButton,
-} from "./ui/main";
+import { hidePokemonImage, showLoader, showPokemonCard, randomButton } from "./ui/main";
 
-function showPokemon(): void {
+async function showPokemon(): Promise<void> {
+  const pokemonId: number = getRandomNumber(1, 151);
   hidePokemonImage();
   showLoader();
 
-  const randomId: number = getRandomNumber(1, 151);
-
-  getPokemonInfo(randomId).then((pokemonInfo) => {
+  try {
+    const pokemonInfo = await getPokemonInfo(pokemonId);
     const pokemon = mapPokemon(pokemonInfo);
-    setTimeout(() => {
-      showPokemonCard(pokemon);
-    }, 400);
-  });
+    showPokemonCard(pokemon);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-function getRandomNumber(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min)) + min;
+function getRandomNumber(minValue: number, maxValue: number): number {
+  return Math.floor(Math.random() * (maxValue - minValue)) + minValue;
 }
 
 randomButton.onclick = showPokemon;
